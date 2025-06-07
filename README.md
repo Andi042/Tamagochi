@@ -7,3 +7,5 @@ btw le kell tesztelni hosszabb időre,
 
 
 a popup_menu.gd nem fontos,nincsen használva
+
+ha találsz hibát ide(is) pls,mert el fog veszni
