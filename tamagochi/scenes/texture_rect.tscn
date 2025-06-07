@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4jlac378u4wj"]
+
+[ext_resource type="Texture2D" uid="uid://bm1dyp8p4ihna" path="res://assets/hsc/Névtelen.png" id="1_3ir5p"]
+
+[node name="TextureRect" type="TextureRect"]
+show_behind_parent = true
+offset_left = -386.0
+offset_top = -309.0
+offset_right = 433.0
+offset_bottom = 151.0
+texture = ExtResource("1_3ir5p")

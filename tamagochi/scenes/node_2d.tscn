@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://1c3ufm0gpq4c"]
+
+[ext_resource type="PackedScene" uid="uid://tibokyq0a5gl" path="res://scenes/character_body_2d.tscn" id="1_6e84v"]
+[ext_resource type="Script" uid="uid://dknxgsdqnlpto" path="res://scripts/node_2d.gd" id="1_rnjyy"]
+[ext_resource type="PackedScene" uid="uid://d03lly63ddth4" path="res://scenes/games.tscn" id="3_04qyp"]
+[ext_resource type="PackedScene" uid="uid://bcuqqh0m6oucg" path="res://scenes/popup_menu.tscn" id="3_4vge2"]
+[ext_resource type="PackedScene" uid="uid://cty53g7atkwb5" path="res://scenes/control.tscn" id="4_j7wrs"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_rnjyy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -516.0
+offset_top = -494.0
+offset_right = 508.0
+offset_bottom = 235.0
+
+[node name="Player" parent="." instance=ExtResource("1_6e84v")]
+position = Vector2(0, -160)
+scale = Vector2(10, 10)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, 40)
+zoom = Vector2(2, 1.5)
+
+[node name="Timer" type="Timer" parent="Player"]
+wait_time = 3600.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="Player"]
+one_shot = true
+
+[node name="food" parent="." instance=ExtResource("4_j7wrs")]
+offset_left = -7.0
+offset_top = -183.0
+offset_right = -7.0
+offset_bottom = -183.0
+scale = Vector2(4.00629, 2.5808)
+
+[node name="games" parent="." instance=ExtResource("3_04qyp")]
+offset_left = 0.000732422
+offset_top = -160.0
+offset_right = 0.000732422
+offset_bottom = -160.0
+scale = Vector2(2.41642, 2.21068)
+
+[node name="popup_menu" parent="." instance=ExtResource("3_4vge2")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -576.0
+offset_top = -461.0
+offset_right = -576.0
+offset_bottom = -461.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(2.45374, 2.64325)
+
+[node name="Button" type="Button" parent="."]
+process_mode = 3
+texture_filter = 1
+offset_left = -142.0
+offset_top = 11.0
+offset_right = -67.0
+offset_bottom = 90.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="."]
+process_mode = 3
+offset_left = -32.0
+offset_top = 11.0
+offset_right = 43.0
+offset_bottom = 91.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="."]
+process_mode = 3
+offset_left = 83.0
+offset_top = 9.0
+offset_right = 156.0
+offset_bottom = 87.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="Player/Timer2" to="Player" method="_on_timer_2_timeout"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button" to="Player" method="_on_button_button_down"]
+[connection signal="pressed" from="Button" to="Player" method="_on_button_pressed"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]
